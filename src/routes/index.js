@@ -1,9 +1,11 @@
 const express = require('express')
 
-const Router = express.Router()
+const userRouter = require('./user.router')
+const personRouter = require('./person.router')
 
-Router.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+const router = express.Router()
 
-module.exports = Router
+router.use('/', userRouter)
+router.use('/', personRouter)
+
+module.exports = router

@@ -16,9 +16,10 @@ server.use((req, res, next) => {
     );
     next();
 });
+
+server.use(express.json())
   
 server.use(Routes)
 
-server.use(express.json())
 
 module.exports = server
