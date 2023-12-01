@@ -8,7 +8,7 @@ const userRouter = express.Router()
 userRouter.get('/user/:id', getUserById)
 
 // GET all Users or by name (with query)
-userRouter.get('/user', authenticateToken, getUsers)
+userRouter.get('/user', getUsers)
 
 // CREATE user whit email and password (required) , The route allows receiving first and last name
 // required name, lastname, email, password

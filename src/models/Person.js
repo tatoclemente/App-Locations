@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
             field: 'last_name'
         },
         address: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
             allowNull: false,
         },
         phone: {
@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         geoCoding: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
             allowNull: true,
         },
         email: {
