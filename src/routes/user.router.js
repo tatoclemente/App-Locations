@@ -4,6 +4,11 @@ const { getUsers, getUserById, updateUser, deleteUser, createUser } = require('.
 
 const userRouter = express.Router()
 
+userRouter.post('/user', (req, res) => {
+    console.log(req.body);
+    res.status(200).json()
+})
+
 // GET by ID
 userRouter.get('/user/:id', getUserById)
 
@@ -13,6 +18,8 @@ userRouter.get('/user', getUsers)
 // CREATE user whit email and password (required) , The route allows receiving first and last name
 // required name, lastname, email, password
 userRouter.post('/user', createUser)
+
+
 
 // UPDATE user / props --> name, lastName, password, role, profileImg
 userRouter.put('/user/:id', updateUser)

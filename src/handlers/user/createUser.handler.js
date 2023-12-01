@@ -1,6 +1,7 @@
 require('dotenv').config()
 const { User } = require('../../db')
 const jwt = require('jsonwebtoken')
+const webpush = require('../../webpush')
 
 const { SECRET_KEY } = process.env
 
