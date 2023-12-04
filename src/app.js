@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
-const path = require('path')
+// const path = require('path')
 const Routes = require('./routes')
 
 const server = express()
@@ -28,6 +28,6 @@ server.use(express.json())
   
 server.use(Routes)
 
-server.use(express.static(path.join(__dirname, 'public')))
+// server.use(express.static(path.join(__dirname, 'public')))
 
 module.exports = server

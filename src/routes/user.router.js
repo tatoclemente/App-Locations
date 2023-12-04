@@ -1,13 +1,25 @@
 const express = require('express')
 const authenticateToken = require('../authMiddleware')
 const { getUsers, getUserById, updateUser, deleteUser, createUser } = require('../handlers/user')
-
+// const webpush = require('../webpush')
 const userRouter = express.Router()
 
-userRouter.post('/user', (req, res) => {
-    console.log(req.body);
-    res.status(200).json()
-})
+// let pushSuscription;
+
+// userRouter.post('/user', async (req, res) => {
+//     pushSuscription = req.body;
+//     res.status(200).json()
+
+//     const payload = JSON.stringify({
+//         title: 'My custom Notification',
+//         message: 'Helo world'
+//     })
+//     try {
+//         await webpush.sendNotification(pushSuscription, payload)
+//     } catch (error) {
+//         console.error(error);
+//     }
+// })
 
 // GET by ID
 userRouter.get('/user/:id', getUserById)

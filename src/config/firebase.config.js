@@ -21,5 +21,6 @@ const firebaseConfig = {
   measurementId: MEASUREMENT_ID
 };
 
-module.exports = firebaseConfig
+initializeApp(firebaseConfig);
+
 

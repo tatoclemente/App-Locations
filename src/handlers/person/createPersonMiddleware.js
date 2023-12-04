@@ -1,10 +1,10 @@
 const { Person } = require("../../db");
 
 const createPersonMiddleware = async (req, res, next) => {
-  const { name, lastName, phone, address, ...rest } = req.body;
+  const { name, lastName, phone, address, geoCoding, ...rest } = req.body;
 
   // Validar datos
-  if (!name || !lastName || !phone || !address) {
+  if (!name || !lastName || !phone || !address || !geoCoding) {
     return res.status(400).json({ message: 'Faltan datos' });
   }
 
@@ -14,6 +14,7 @@ const createPersonMiddleware = async (req, res, next) => {
     lastName,
     phone,
     address,
+    geoCoding,
     ...rest,
   });
 

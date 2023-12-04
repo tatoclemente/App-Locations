@@ -14,6 +14,8 @@ const createPerson = async (req, res) => {
       },
     });
 
+    // ENviar Push Notification
+
     // Enviar respuesta
     res.status(200).json({
       message: 'La persona se ha asignado correctamente',
