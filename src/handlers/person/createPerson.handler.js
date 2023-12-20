@@ -1,6 +1,7 @@
 const { Person } = require('../../db')
 
 const createPerson = async (req, res) => {
+
   const personId = res.locals.personId;
   const { userId } = req.body;
   console.log(userId);

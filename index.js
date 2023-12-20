@@ -1,5 +1,7 @@
 const server = require('./src/app.js')
 const { conn } = require('./src/db.js')
+const { createServer } = require('http')
+const { Server } = require('socket.io')
 
 const { initializeApp, applicationDefault } = require('firebase-admin/app')
 
@@ -16,11 +18,21 @@ initializeApp({
 
 require('dotenv').config()
 
+let httpServer = createServer(server)
+
+module.exports.io = new Server(httpServer, {
+    cors: {
+        origin: '*',
+        methods: ['GET', 'POST']
+    }
+})
+require('./src/web-sockets/socket')
+
 const PORT = process.env.PORT | 3001
 
 conn.sync({ alter: true })
 .then(() => {
-    server.listen(PORT, () => {
+    httpServer.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`)
     }) 
 })
