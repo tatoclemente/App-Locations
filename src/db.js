@@ -3,6 +3,7 @@ const { Sequelize, BelongsTo } = require('sequelize')
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env
 const UserModel = require('./models/User')
 const PersonModel = require('./models/Person')
+const MessageModel = require('./models/Message')
 
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/location`,
@@ -11,8 +12,9 @@ const sequelize = new Sequelize(
 
 UserModel(sequelize)
 PersonModel(sequelize)
+MessageModel(sequelize)
 
-const { User, Person } = sequelize.models
+const { User, Person, Message } = sequelize.models
 
 User.hasMany(Person, {
   foreignKey: 'userId',
@@ -22,5 +24,6 @@ User.hasMany(Person, {
 module.exports = {
   User,
   Person,
+  Message,
   conn: sequelize,
 }

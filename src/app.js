@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const morgan = require('morgan')
+const logger = require('morgan')
 // const path = require('path')
 const Routes = require('./routes')
 
@@ -8,7 +8,7 @@ const server = express()
 
 server.use(cors())
 
-server.use(morgan('dev'))
+server.use(logger('dev'))
 
 server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

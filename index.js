@@ -1,11 +1,11 @@
 const server = require('./src/app.js')
 const { conn } = require('./src/db.js')
-const { createServer } = require('http')
+const { createServer } = require('node:http')
 const { Server } = require('socket.io')
 
 const { initializeApp, applicationDefault } = require('firebase-admin/app')
 
-const { getMessaging } = require('firebase-admin/messaging')
+// const { getMessaging } = require('firebase-admin/messaging')
 
 require('dotenv').config()
 
@@ -24,7 +24,8 @@ module.exports.io = new Server(httpServer, {
     cors: {
         origin: '*',
         methods: ['GET', 'POST']
-    }
+    },
+    connectionStateRecovery: {}
 })
 require('./src/web-sockets/socket')
 

@@ -12,7 +12,11 @@ const loginHandler = async (req, res) => {
     console.log("MESSGE: ", message);
     console.log("TOKEN: ", token);
 
-    res.cookie('auth-token', user.token)
+    res.cookie('auth-token', user.token, { 
+      path: '/tutorial',
+      httpOnly: true,
+      secure: true, 
+    })
     res.status(200).json({
       message: user.message,
     })
